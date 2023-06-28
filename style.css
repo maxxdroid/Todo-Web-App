@@ -52,4 +52,39 @@ body {
     height: 70px;
     margin-top: 50px;
     border-radius: 10px;
+    display: flex;
+}
+
+.check { 
+    width: 80px;
+}
+
+.check-mark {
+    height: 30px;
+    width: 30px;
+}
+
+.new-todo-input {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.new-todo-input form {
+    flex-grow: 1;
+}
+
+.new-todo-input input {
+    width: 100%;
+    padding: 10px 0px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: hsl(234, 39%, 85%);
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.new-todo-input input::placeholder {
+    color: hsl(233, 15%, 35%);
 }
