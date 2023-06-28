@@ -57,11 +57,16 @@ body {
 
 .check { 
     width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .check-mark {
     height: 30px;
     width: 30px;
+    border-radius: 50%;
+    border: 2px solid hsl(237, 14%, 26%);
 }
 
 .new-todo-input {
