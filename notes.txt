@@ -1,0 +1,6 @@
+1. Create the needed boxes
+2. Create the banner Background image
+3. Create the header
+4. Create the input selection
+5. Create the Todos Items list selection
+6. Sace data to local storage
