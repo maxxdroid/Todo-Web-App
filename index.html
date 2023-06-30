@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
 </head>
 <body>
   <div class="background-image">
@@ -25,29 +25,13 @@
         </div>
       </div>
       <div class="new-todo-input">
-        <form onsubmit="addItem(event)">
+        <form role="form" id="myform", onsubmit="addItem(event)">
           <input id="todo-input" type="text" placeholder="Create a new todo....">
         </form>
       </div>
     </div>
     <div class="todo-items-wrapper">
       <div class="todo-items">
-        <div class="todo-item">
-          <div class="check">
-            <div class="check-mark">
-              <img src="./images/icon-check.svg" alt="">
-            </div>
-          </div>
-          <div class="todo-text">Mow The Goddamn lawn</div>
-        </div>
-        <div class="todo-item">
-          <div class="check">
-            <div class="check-mark">
-              <img src="./images/icon-check.svg" alt="">
-            </div>
-          </div>
-          <div class="todo-text">Mow The Goddamn lawn</div>
-        </div>
         <div class="todo-item">
           <div class="check">
             <div class="check-mark">
@@ -72,5 +56,6 @@
       </div>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>

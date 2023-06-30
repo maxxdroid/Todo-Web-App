@@ -78,6 +78,11 @@ body {
     background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
 }
 
+/* .check-mark-active {} */
+
+/* .check-mark img:hover {
+} */
+
 .new-todo-input {
     flex-grow: 1;
     display: flex;
