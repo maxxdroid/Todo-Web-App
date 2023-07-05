@@ -21,7 +21,15 @@ function addItem(event) {
         </div>
     `
     todoCon.appendChild(todoItems);
-    createEventListeners();
+    // createEventListeners();
+
+    let check = todoItems.querySelector(".check-mark");
+    let textcheck = todoItems.querySelector(".todo-text");
+    check.addEventListener('click', () => {
+      check.classList.add("checked");
+      textcheck.classList.add("checked");
+      // console.log(todoItems.children[0]);
+    })
 }
 
 function createEventListeners() {

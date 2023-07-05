@@ -86,7 +86,17 @@ body {
     visibility: visible;
 }
 
+.check-mark.checked text {
+    text-decoration: line-through;
+    color: hsl(233, 14%, 35%);
+}
+
 .todo-text.checked {
+    text-decoration: line-through;
+    color: hsl(233, 14%, 35%);
+}
+
+.complete {
     text-decoration: line-through;
     color: hsl(233, 14%, 35%);
 }
