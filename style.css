@@ -91,15 +91,11 @@ body {
     color: hsl(233, 14%, 35%);
 }
 
-.todo-text.checked {
+.todo-text.complete {
     text-decoration: line-through;
     color: hsl(233, 14%, 35%);
 }
 
-.complete {
-    text-decoration: line-through;
-    color: hsl(233, 14%, 35%);
-}
 
 /* .check-mark-active {} */
 
