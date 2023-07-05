@@ -21,4 +21,16 @@ function addItem(event) {
         </div>
     `
     todoCon.appendChild(todoItems);
+    createEventListeners();
+}
+
+function createEventListeners() {
+  let todoCheckMarkers = document.querySelectorAll(".todo-item .check-mark");
+  todoCheckMarkers.forEach((checkMark) => {
+    checkMark.addEventListener("click", ()=>{ markCompleted();})
+  })
+}
+
+function markCompleted() {
+  console.log("mark completed");
 }
