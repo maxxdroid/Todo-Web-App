@@ -37,14 +37,16 @@ function addItem(element) {
         </div>
     `
     todoCon.appendChild(todoItems);
-    updatels();}
+    updatels()}
     let check = todoItems.querySelector(".check-mark");
     let textcheck = todoItems.querySelector(".todo-text");
     check.addEventListener('click', () => {
       check.classList.add("checked");
       textcheck.classList.add("complete");
-      updatels()
+      updatels();
     })
+    text.value = "";
+    // window.location.reload();
 }
 
 let info = document.querySelectorAll(".items-statuses span");
@@ -83,6 +85,18 @@ info.forEach(element => {
   })
 })
 
+let clear = document.querySelector(".clear");
+clear.addEventListener("click", ()=>{
+  // window.location.reload();
+  todolist.forEach(item => {
+    if(item.children[0].classList.contains("checked")){
+      console.log("yh");
+      item.remove();
+      updatels();
+    } 
+  })
+})
+
 function updatels() {
   let textTag = document.querySelectorAll(".todo-text")
   let arr=[];
@@ -105,3 +119,12 @@ function createEventListeners() {
 function markCompleted() {
   console.log("mark completed");
 }
+
+let remaining = document.querySelector(".items-left");
+function itemNumber () {
+  let activeTodo = document.querySelectorAll(".todo-item.checked");
+  let num = todolist.length - activeTodo.length;
+  remaining.innerText = `${num} items left`
+  // console.log(activeTodo)
+}
+itemNumber()
