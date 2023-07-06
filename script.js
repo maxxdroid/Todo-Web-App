@@ -7,7 +7,7 @@ let todos = JSON.parse(localStorage.getItem("todos"));
 let form = document.querySelector("form");
 
 form.addEventListener("submit", (e)=>{
-  e.preventDefault();
+  // e.preventDefault();
   addItem();
 })
 
@@ -125,6 +125,5 @@ function itemNumber () {
   let activeTodo = document.querySelectorAll(".todo-item.checked");
   let num = todolist.length - activeTodo.length;
   remaining.innerText = `${num} items left`
-  // console.log(activeTodo)
 }
 itemNumber()
