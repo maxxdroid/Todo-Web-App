@@ -17,6 +17,7 @@ if (todos) {
   })
 }
 
+//Create and Add todos to arrays and then stored in local storage
 function addItem(element) {
     // event.preventDefault();
     let todoItems = document.createElement("div");
@@ -58,6 +59,7 @@ function addItem(element) {
     // window.location.reload();
 }
 
+//Show completed, active and all Todos
 let info = document.querySelectorAll(".items-statuses span");
 let todolist = document.querySelectorAll(".todocoll");
 info.forEach(element => {
@@ -69,7 +71,6 @@ info.forEach(element => {
           // item.style.display = "flex";
           // item.classList.remove("checked")
           // updatels()
-          console.log("yh");
           item.style.display = "none";
         } else {
           item.style.display = "block";
@@ -85,7 +86,6 @@ info.forEach(element => {
         }
       })
     }else{
-      console.log("max")
       todolist.forEach(item => {
         item.style.display = "block";
       })
@@ -93,18 +93,18 @@ info.forEach(element => {
   })
 })
 
+//Clear completed todos
 let clear = document.querySelector(".clear");
 clear.addEventListener("click", ()=>{
-  // window.location.reload();
   todolist.forEach(item => {
     if(item.children[0].classList.contains("checked")){
-      console.log("yh");
       item.remove();
       updatels();
     } 
   })
 })
 
+//Update array stored in local Storage
 function updatels() {
   let textTag = document.querySelectorAll(".todo-text")
   let arr=[];
@@ -128,6 +128,7 @@ function markCompleted() {
   console.log("mark completed");
 }
 
+//Function to calculate remaining item Number
 let remaining = document.querySelector(".items-left");
 function itemNumber () {
   let activeTodo = document.querySelectorAll(".todo-item.checked");
@@ -136,10 +137,11 @@ function itemNumber () {
 }
 itemNumber()
 
+//Function to change theme
 let theme = document.querySelector(".theme");
 const img = document.getElementById('img');
 const bg_img = document.getElementById('bgimg');
-const change_image = function() {
+const change_theme = function() {
   if (img.dataset.image == "dark") {
   	img.src = "./images/icon-moon.svg";
     img.dataset.image = "light";
