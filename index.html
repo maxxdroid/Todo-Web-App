@@ -12,12 +12,14 @@
 </head>
 <body>
   <div class="background-image">
-    <img src="./images/bg-desktop-dark.jpg" alt="">
+    <img id="bgimg" src="./images/bg-desktop-dark.jpg" alt="">
   </div>
   <div class="container">
     <div class="header">
       <div class="title">TODO</div>
-      <div class="theme"> <img src="./images/icon-sun.svg"> </div>
+      <div class="theme">
+         <img id="img" data-image="dark" src="./images/icon-sun.svg" onclick="change_image()">
+       </div>
     </div>
     <div class="new-todo">
       <div class="check">

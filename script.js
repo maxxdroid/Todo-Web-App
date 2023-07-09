@@ -37,13 +37,22 @@ function addItem(element) {
         </div>
     `
     todoCon.appendChild(todoItems);
-    updatels()}
+    updatels()
+    // $("todo-items-wrapper").load(location.href+"todo-items-wrapper>*",""); 
+    // $('todo-items-wrapper').load('todo-items-wrapper');
+  }
     let check = todoItems.querySelector(".check-mark");
     let textcheck = todoItems.querySelector(".todo-text");
     check.addEventListener('click', () => {
-      check.classList.add("checked");
-      textcheck.classList.add("complete");
-      updatels();
+      if(!check.classList.contains("checked")) {
+        check.classList.add("checked");
+        textcheck.classList.add("complete");
+        updatels();
+      } else {
+        check.classList.remove("checked");
+        textcheck.classList.remove("complete");
+        updatels();
+      }
     })
     text.value = "";
     // window.location.reload();
@@ -75,7 +84,6 @@ info.forEach(element => {
           item.style.display = "block";
         }
       })
-      console.log("hello")
     }else{
       console.log("max")
       todolist.forEach(item => {
@@ -127,3 +135,22 @@ function itemNumber () {
   remaining.innerText = `${num} items left`
 }
 itemNumber()
+
+let theme = document.querySelector(".theme");
+const img = document.getElementById('img');
+const bg_img = document.getElementById('bgimg');
+const change_image = function() {
+  if (img.dataset.image == "dark") {
+  	img.src = "./images/icon-moon.svg";
+    img.dataset.image = "light";
+    bg_img.src = "./images/bg-desktop-light.jpg";
+    document.documentElement.style.setProperty('--todo-item-bg', 'white');
+    document.documentElement.style.setProperty('--todo-item-wrapper-bg', 'white');
+    document.documentElement.style.setProperty('--bg-color', 'white');
+    document.documentElement.style.setProperty('--todo-input-bg', 'white');
+  } else if (img.dataset.image == "light") {
+  	img.src = "./images/icon-sun.svg";
+    img.dataset.image = "dark";
+    window.location.reload();
+  };
+};
