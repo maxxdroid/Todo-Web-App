@@ -148,11 +148,18 @@ const change_theme = function() {
     bg_img.src = "./images/bg-desktop-light.jpg";
     document.documentElement.style.setProperty('--todo-item-bg', 'white');
     document.documentElement.style.setProperty('--todo-item-wrapper-bg', 'white');
-    document.documentElement.style.setProperty('--bg-color', 'white');
+    document.documentElement.style.setProperty('--bg-color', 'hsl(0, 0%, 98%)');
     document.documentElement.style.setProperty('--todo-input-bg', 'white');
+    document.documentElement.style.setProperty('--text-color', 'hsl(235, 19%, 35%)');
   } else if (img.dataset.image == "light") {
   	img.src = "./images/icon-sun.svg";
     img.dataset.image = "dark";
-    window.location.reload();
+    bg_img.src = "./images/bg-desktop-dark.jpg";
+    document.documentElement.style.setProperty('--todo-item-bg', 'hsl(235, 24%, 19%)');
+    document.documentElement.style.setProperty('--todo-item-wrapper-bg', 'hsl(235, 24%, 19%)');
+    document.documentElement.style.setProperty('--bg-color', 'hsl(235, 21%, 11%)');
+    document.documentElement.style.setProperty('--todo-input-bg', 'hsl(235, 24%, 19%)');
+    // window.location.reload();
+    
   };
 };

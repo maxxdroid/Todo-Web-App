@@ -9,6 +9,8 @@
     --todo-item-wrapper-bg: hsl(235, 24%, 19%);
     --todo-item-bg: hsl(235, 24%, 19%);
     --bg-color: hsl(235, 21%, 11%);
+    /* --text-color: hsl(233, 14%, 35%); */
+    --text-color: hsl(234, 39%, 85%);
 }
 
 
@@ -101,7 +103,7 @@ body {
 
 .todo-text.complete {
     text-decoration: line-through;
-    color: hsl(233, 14%, 35%);
+    color: var(--text-color);
 }
 
 
@@ -141,7 +143,8 @@ body {
     height: 70px;
     background-color: var(--todo-item-bg);
     border-bottom: 1px solid hsl(237, 14%, 26%);
-    color: hsl(234, 39%, 85%);
+    /* color: hsl(234, 39%, 85%); */
+    color: var(--text-color);
     font-size: 18px;
     transition: all 0.25s ease;
     display: flex;
