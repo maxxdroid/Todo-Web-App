@@ -9,7 +9,6 @@
     --todo-item-wrapper-bg: hsl(235, 24%, 19%);
     --todo-item-bg: hsl(235, 24%, 19%);
     --bg-color: hsl(235, 21%, 11%);
-    /* --text-color: hsl(233, 14%, 35%); */
     --text-color: hsl(234, 39%, 85%);
 }
 
@@ -107,10 +106,19 @@ body {
 }
 
 
-/* .check-mark-active {} */
-
-/* .check-mark img:hover {
-} */
+.remove {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background: transparent;
+    border: none;
+    outline: none;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-left: auto;
+    float: left;
+}
 
 .new-todo-input {
     flex-grow: 1;
@@ -147,7 +155,7 @@ body {
     color: var(--text-color);
     font-size: 18px;
     transition: all 0.25s ease;
-    display: flex;
+    /* display: flex; */
     cursor: pointer;
 }
 

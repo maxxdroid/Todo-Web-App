@@ -3,6 +3,7 @@ let text = document.getElementById("todo-input");
 let todoCon = document.querySelector(".todo-items");
 let todoItems = document.querySelectorAll(".todo-item");
 let todos = JSON.parse(localStorage.getItem("todos"));
+let darktheme = true;
 
 let form = document.querySelector("form");
 
@@ -35,6 +36,7 @@ function addItem(element) {
             </div>
           </div>
           <div class="todo-text ${element && element.complete ? "complete":""}">${inputText}</div>
+          <div class="remove"> <img src="./images/icon-cross.svg"> </div>
         </div>
     `
     todoCon.appendChild(todoItems);
@@ -45,6 +47,7 @@ function addItem(element) {
     let check = todoItems.querySelector(".check-mark");
     let textcheck = todoItems.querySelector(".todo-text");
     check.addEventListener('click', () => {
+      window.location.reload();
       if(!check.classList.contains("checked")) {
         check.classList.add("checked");
         textcheck.classList.add("complete");
@@ -64,6 +67,8 @@ let info = document.querySelectorAll(".items-statuses span");
 let todolist = document.querySelectorAll(".todocoll");
 info.forEach(element => {
   element.addEventListener("click", ()=>{
+    // window.location.reload();
+    // console.log("Sup");
     if (element.innerText == "Active"){
       console.log(todolist)
       todolist.forEach(item => {
@@ -104,6 +109,22 @@ clear.addEventListener("click", ()=>{
   })
 })
 
+let remove = document.querySelectorAll(".remove");
+
+todolist.forEach(item => {
+  let m = item.querySelector(".remove");
+  m.addEventListener("click", ()=> {
+    // item.remove;
+    console.log("yh")
+    console.log(item);
+    item.remove();
+    updatels();
+    window.location.reload();
+  })
+})
+
+
+
 //Update array stored in local Storage
 function updatels() {
   let textTag = document.querySelectorAll(".todo-text")
@@ -114,6 +135,8 @@ function updatels() {
       complete: element.classList.contains("complete")
     })
   })
+
+
   localStorage.setItem("todos", JSON.stringify(arr));
 }
 
@@ -151,6 +174,7 @@ const change_theme = function() {
     document.documentElement.style.setProperty('--bg-color', 'hsl(0, 0%, 98%)');
     document.documentElement.style.setProperty('--todo-input-bg', 'white');
     document.documentElement.style.setProperty('--text-color', 'hsl(235, 19%, 35%)');
+    darktheme = false;
   } else if (img.dataset.image == "light") {
   	img.src = "./images/icon-sun.svg";
     img.dataset.image = "dark";
@@ -159,7 +183,34 @@ const change_theme = function() {
     document.documentElement.style.setProperty('--todo-item-wrapper-bg', 'hsl(235, 24%, 19%)');
     document.documentElement.style.setProperty('--bg-color', 'hsl(235, 21%, 11%)');
     document.documentElement.style.setProperty('--todo-input-bg', 'hsl(235, 24%, 19%)');
-    // window.location.reload();
-    
+    document.documentElement.style.setProperty('--text-color', 'hsl(234, 39%, 85%)');
+    darktheme = true
   };
 };
+
+function keep () {
+  if (sessionStorage.getItem('colors')) {
+    // let colors = ['white', 'hsl(0, 0%, 98%)', 'white', 'hsl(235, 19%, 35%)'];
+    const colors = JSON.parse(localStorage.getItem('colors'));
+
+    document.documentElement.style.setProperty('--todo-item-bg', colors[0]);
+    document.documentElement.style.setProperty('--todo-item-wrapper-bg', colors[1]);
+    document.documentElement.style.setProperty('--bg-color', colors[2]);
+    document.documentElement.style.setProperty('--todo-input-bg', colors[3]);
+    document.documentElement.style.setProperty('--text-color', colors[4]);
+
+    
+    
+  } else{
+    // console.log(colors[0]);
+    // console.log("kkkkkkk")
+
+    if (darktheme) {
+      let colors = ['hsl(235, 24%, 19%)', 'hsl(235, 24%, 19%)', 'hsl(235, 21%, 11%)', 'hsl(235, 24%, 19%)', 'hsl(234, 39%, 85%)'];
+      localStorage.setItem('colors', JSON.stringify(colors));
+    } else {
+      let colors = ['white', 'white', 'hsl(0, 0%, 98%)', 'white', 'hsl(235, 19%, 35%)'];
+      localStorage.setItem('colors', JSON.stringify(colors));
+    }
+  }
+}
