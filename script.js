@@ -170,7 +170,7 @@ const change_theme = function() {
   	img.src = "./images/icon-moon.svg";
     img.dataset.image = "light";  
     bg_img.src = "./images/bg-desktop-light.jpg";
-    colors = ['./images/icon-moon.svg','white', 'hsl(0, 0%, 98%)', 'white', 'white'];
+    colors = ['./images/icon-moon.svg','white', 'hsl(0, 0%, 98%)', 'white', 'white', 'white', 'hsl(233, 11%, 84%)'];
     localStorage.setItem('colors', JSON.stringify(colors));
     // window.location.reload();
     document.documentElement.style.setProperty('--todo-item-bg', 'white');
@@ -178,12 +178,13 @@ const change_theme = function() {
     document.documentElement.style.setProperty('--bg-color', 'hsl(0, 0%, 98%)');
     document.documentElement.style.setProperty('--todo-input-bg', 'white');
     document.documentElement.style.setProperty('--text-color', 'hsl(235, 19%, 35%)');
+    document.documentElement.style.setProperty('--border-color','hsl(233, 11%, 84%)');
     let bg = true;
     localStorage.setItem('bg',JSON.stringify(bg))
     console.log('yh')
   } else if (img.dataset.image == "light") {
   	img.src = "./images/icon-sun.svg";
-    colors = ['./images/icon-sun.svg','hsl(235, 24%, 19%)', 'hsl(235, 24%, 19%)', 'hsl(235, 21%, 11%)', 'hsl(235, 24%, 19%)', 'hsl(234, 39%, 85%)'];
+    colors = ['./images/icon-sun.svg','hsl(235, 24%, 19%)', 'hsl(235, 24%, 19%)', 'hsl(235, 21%, 11%)', 'hsl(235, 24%, 19%)', 'hsl(234, 39%, 85%)', 'hsl(237, 14%, 26%)'];
     localStorage.setItem('colors', JSON.stringify(colors));
     img.dataset.image = "dark";
     // window.location.reload();
@@ -193,6 +194,7 @@ const change_theme = function() {
     document.documentElement.style.setProperty('--bg-color', 'hsl(235, 21%, 11%)');
     document.documentElement.style.setProperty('--todo-input-bg', 'hsl(235, 24%, 19%)');
     document.documentElement.style.setProperty('--text-color', 'hsl(234, 39%, 85%)');
+    document.documentElement.style.setProperty('--border-color','hsl(237, 14%, 26%)');
     let bg = false;
     localStorage.setItem('bg',JSON.stringify(bg))
   };
@@ -215,6 +217,5 @@ function keep () {
     document.documentElement.style.setProperty('--bg-color', colors[3]);
     document.documentElement.style.setProperty('--todo-input-bg', colors[4]);
     document.documentElement.style.setProperty('--text-color', colors[5]);
-    
-  // } 
+    document.documentElement.style.setProperty('--border-color', colors[6]);
 }
