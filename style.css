@@ -118,6 +118,11 @@ body {
     margin-right: 20px;
     margin-left: auto;
     float: left;
+    opacity: 0;
+}
+
+.todo-item:hover .remove{
+    opacity: 2;
 }
 
 .new-todo-input {

@@ -160,6 +160,7 @@ function itemNumber () {
 }
 itemNumber()
 
+colors=[]
 //Function to change theme
 let theme = document.querySelector(".theme");
 const img = document.getElementById('img');
@@ -167,50 +168,53 @@ const bg_img = document.getElementById('bgimg');
 const change_theme = function() {
   if (img.dataset.image == "dark") {
   	img.src = "./images/icon-moon.svg";
-    img.dataset.image = "light";
+    img.dataset.image = "light";  
     bg_img.src = "./images/bg-desktop-light.jpg";
+    colors = ['./images/icon-moon.svg','white', 'hsl(0, 0%, 98%)', 'white', 'white'];
+    localStorage.setItem('colors', JSON.stringify(colors));
+    // window.location.reload();
     document.documentElement.style.setProperty('--todo-item-bg', 'white');
     document.documentElement.style.setProperty('--todo-item-wrapper-bg', 'white');
     document.documentElement.style.setProperty('--bg-color', 'hsl(0, 0%, 98%)');
     document.documentElement.style.setProperty('--todo-input-bg', 'white');
     document.documentElement.style.setProperty('--text-color', 'hsl(235, 19%, 35%)');
-    darktheme = false;
+    let bg = true;
+    localStorage.setItem('bg',JSON.stringify(bg))
+    console.log('yh')
   } else if (img.dataset.image == "light") {
   	img.src = "./images/icon-sun.svg";
+    colors = ['./images/icon-sun.svg','hsl(235, 24%, 19%)', 'hsl(235, 24%, 19%)', 'hsl(235, 21%, 11%)', 'hsl(235, 24%, 19%)', 'hsl(234, 39%, 85%)'];
+    localStorage.setItem('colors', JSON.stringify(colors));
     img.dataset.image = "dark";
+    // window.location.reload();
     bg_img.src = "./images/bg-desktop-dark.jpg";
     document.documentElement.style.setProperty('--todo-item-bg', 'hsl(235, 24%, 19%)');
     document.documentElement.style.setProperty('--todo-item-wrapper-bg', 'hsl(235, 24%, 19%)');
     document.documentElement.style.setProperty('--bg-color', 'hsl(235, 21%, 11%)');
     document.documentElement.style.setProperty('--todo-input-bg', 'hsl(235, 24%, 19%)');
     document.documentElement.style.setProperty('--text-color', 'hsl(234, 39%, 85%)');
-    darktheme = true
+    let bg = false;
+    localStorage.setItem('bg',JSON.stringify(bg))
   };
 };
 
 function keep () {
-  if (sessionStorage.getItem('colors')) {
-    // let colors = ['white', 'hsl(0, 0%, 98%)', 'white', 'hsl(235, 19%, 35%)'];
+  // if (sessionStorage.getItem('colors')) {
     const colors = JSON.parse(localStorage.getItem('colors'));
-
-    document.documentElement.style.setProperty('--todo-item-bg', colors[0]);
-    document.documentElement.style.setProperty('--todo-item-wrapper-bg', colors[1]);
-    document.documentElement.style.setProperty('--bg-color', colors[2]);
-    document.documentElement.style.setProperty('--todo-input-bg', colors[3]);
-    document.documentElement.style.setProperty('--text-color', colors[4]);
-
-    
-    
-  } else{
-    // console.log(colors[0]);
-    // console.log("kkkkkkk")
-
-    if (darktheme) {
-      let colors = ['hsl(235, 24%, 19%)', 'hsl(235, 24%, 19%)', 'hsl(235, 21%, 11%)', 'hsl(235, 24%, 19%)', 'hsl(234, 39%, 85%)'];
-      localStorage.setItem('colors', JSON.stringify(colors));
-    } else {
-      let colors = ['white', 'white', 'hsl(0, 0%, 98%)', 'white', 'hsl(235, 19%, 35%)'];
-      localStorage.setItem('colors', JSON.stringify(colors));
+    const bg = JSON.parse(localStorage.getItem('bg'));
+    if(bg){
+      document.getElementById("bgimg").src= './images/bg-desktop-light.jpg';
+    } else{
+      document.getElementById("bgimg").src = './images/bg-desktop-dark.jpg';
     }
-  }
+
+    img.src = colors[0];
+
+    document.documentElement.style.setProperty('--todo-item-bg', colors[1]);
+    document.documentElement.style.setProperty('--todo-item-wrapper-bg', colors[2]);
+    document.documentElement.style.setProperty('--bg-color', colors[3]);
+    document.documentElement.style.setProperty('--todo-input-bg', colors[4]);
+    document.documentElement.style.setProperty('--text-color', colors[5]);
+    
+  // } 
 }
