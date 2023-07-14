@@ -22,7 +22,7 @@ if (todos) {
 function addItem(element) {
     // event.preventDefault();
     let todoItems = document.createElement("div");
-    todoItems.classList.add("todocoll");
+    todoItems.classList.add("todocoll")
     let inputText = text.value;
     if(element) {
       inputText = element.text; 
@@ -111,6 +111,30 @@ clear.addEventListener("click", ()=>{
 
 let remove = document.querySelectorAll(".remove");
 
+let todocoll = document.querySelectorAll(".todocoll");
+todocoll.forEach((col) => {
+  col.setAttribute('draggable', true);
+  console.log(col);
+  col.addEventListener("dragstart", () =>{
+    setTimeout(() => col.classList.add("dragging"), 0);
+  })
+  col.addEventListener("dragend", () => col.classList.remove("dragging"));
+})
+
+const initSortableItems = (e) => {
+  e.preventDefault();
+  const draggingItem = todoCon.querySelector(".dragging");
+  const siblings = [...todoCon.querySelectorAll(".todocoll:not(.dragging)")];
+  let nextSibling = siblings.find(sibling => {
+    return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
+  })
+  // console.log(nextSibling);
+  todoCon.insertBefore(draggingItem, nextSibling);
+  updatels();
+}
+
+todoCon.addEventListener("dragover", initSortableItems);
+
 todolist.forEach(item => {
   let m = item.querySelector(".remove");
   m.addEventListener("click", ()=> {
@@ -170,7 +194,7 @@ const change_theme = function() {
   	img.src = "./images/icon-moon.svg";
     img.dataset.image = "light";  
     bg_img.src = "./images/bg-desktop-light.jpg";
-    colors = ['./images/icon-moon.svg','white', 'hsl(0, 0%, 98%)', 'white', 'white', 'white', 'hsl(233, 11%, 84%)'];
+    colors = ['./images/icon-moon.svg','white', 'hsl(0, 0%, 98%)', 'white', 'white', 'hsl(235, 19%, 35%)', 'hsl(233, 11%, 84%)'];
     localStorage.setItem('colors', JSON.stringify(colors));
     // window.location.reload();
     document.documentElement.style.setProperty('--todo-item-bg', 'white');

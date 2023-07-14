@@ -233,3 +233,8 @@ body {
     cursor: pointer;
     text-align: end;
 }
+
+.todocoll.dragging {
+    /* opacity: 0; */
+    display: none;
+}
