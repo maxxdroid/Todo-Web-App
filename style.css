@@ -12,8 +12,21 @@
     --text-color: hsl(234, 39%, 85%);
     --border-color: hsl(237, 14%, 26%);
     /* hsl(237, 14%, 26%)  hsl(233, 11%, 84%) */
-}
+}   
 
+@media only screen and (max-width: 500px) {
+    .items-left{
+        display: none;
+        color: red;
+    }
+    .clear{
+        display: none;
+    }
+    .items-statuses{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
 body {
     display: flex;
