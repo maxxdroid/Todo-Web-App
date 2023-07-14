@@ -1,4 +1,4 @@
-# Todo Web App built with Html and Css
+# Todo Web App built with Html, Css and Javascript
 
 # A functional web app that allows users to add todos.
 
