@@ -1,6 +1,6 @@
 # Todo Web App built with Html and Css
 
-# A functional web app that allows usres to add todos and tasks.
+# A functional web app that allows users to add todos.
 
 This project allows the user to do the following:
 
