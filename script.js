@@ -161,7 +161,7 @@ todolist.forEach(item => {
     console.log(item);
     item.remove();
     updatels();
-    window.location.reload();
+    itemNumber()
   })
 })
 
