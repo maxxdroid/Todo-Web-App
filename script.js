@@ -3,15 +3,16 @@ let text = document.getElementById("todo-input");
 let todoCon = document.querySelector(".todo-items");
 let todoItems = document.querySelectorAll(".todo-item");
 let todos = JSON.parse(localStorage.getItem("todos"));
+let remaining = document.querySelector(".items-left");
 let darktheme = true;
+let arr=[];
 
 let form = document.querySelector("form");
 
 form.addEventListener("submit", (e)=>{
-  // e.preventDefault();
+  e.preventDefault();
   addItem();
 })
-
 // let textcheck = todoItems.querySelector(".todo-text");
 // let item = todoItems.querySelector(".todo-item")
 // textcheck.classList.add("complete");
@@ -26,6 +27,7 @@ if (todos) {
     addItem(element);
   })
 }
+
 
 //Create and Add todos to arrays and then stored in local storage
 function addItem(element) {
@@ -50,6 +52,7 @@ function addItem(element) {
     `
     todoCon.appendChild(todoItems);
     updatels()
+    // itemNumber()
     // $("todo-items-wrapper").load(location.href+"todo-items-wrapper>*",""); 
     // $('todo-items-wrapper').load('todo-items-wrapper');
   }
@@ -73,6 +76,7 @@ function addItem(element) {
     })
     text.value = "";
     // window.location.reload();
+    itemNumber()
 }
 
 //Show completed, active and all Todos
@@ -126,6 +130,7 @@ let remove = document.querySelectorAll(".remove");
 
 let todocoll = document.querySelectorAll(".todocoll");
 todocoll.forEach((col) => {
+  console.log("dragging")
   col.setAttribute('draggable', true);
   console.log(col);
   col.addEventListener("dragstart", () =>{
@@ -165,7 +170,7 @@ todolist.forEach(item => {
 //Update array stored in local Storage
 function updatels() {
   let textTag = document.querySelectorAll(".todo-text")
-  let arr=[];
+  arr=[];
   textTag.forEach(element => {
     arr.push({
       text: element.innerText,
@@ -189,10 +194,10 @@ function markCompleted() {
 }
 
 //Function to calculate remaining item Number
-let remaining = document.querySelector(".items-left");
+
 function itemNumber () {
   let activeTodo = document.querySelectorAll(".todo-item.checked");
-  let num = todolist.length - activeTodo.length;
+  let num = arr.length - activeTodo.length;
   remaining.innerText = `${num} items left`
 }
 itemNumber()
