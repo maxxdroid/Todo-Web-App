@@ -82,6 +82,37 @@ function addItem(element) {
 //Show completed, active and all Todos
 let info = document.querySelectorAll(".items-statuses span");
 let todolist = document.querySelectorAll(".todocoll");
+
+function active () {
+  todolist.forEach(item => {
+    if(item.children[0].classList.contains("checked")){
+      // item.style.display = "flex";
+      // item.classList.remove("checked")
+      // updatels()
+      item.style.display = "none";
+    } else {
+      item.style.display = "block";
+    }
+  })
+}
+
+function completed () {
+  todolist.forEach(item => {
+    if(!item.children[0].classList.contains("checked")){
+      console.log("yh");
+      item.style.display = "none";
+    } else {
+      item.style.display = "block";
+    }
+  })
+}
+
+function all_items () {
+  todolist.forEach(item => {
+    item.style.display = "block";
+  })
+}
+
 info.forEach(element => {
   element.addEventListener("click", ()=>{
     // window.location.reload();
@@ -156,7 +187,7 @@ todoCon.addEventListener("dragover", initSortableItems);
 todolist.forEach(item => {
   let m = item.querySelector(".remove");
   m.addEventListener("click", ()=> {
-    // item.remove;
+    // item.remove;x
     console.log("yh")
     console.log(item);
     item.remove();

@@ -300,6 +300,10 @@ button:active {
     color: blue;
 }
 
+button:focus{
+    color: blue;
+}
+
 button:hover {
     color: white;
     cursor: pointer;
