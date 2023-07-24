@@ -13,4 +13,3 @@ This project allows the user to do the following:
 * Clear all completed to-dos
 * Toggle light and dark mode
 * Drag and drop to reorder items on the list
-* Build this project as a full-stack application
