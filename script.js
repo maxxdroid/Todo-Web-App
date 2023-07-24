@@ -12,6 +12,15 @@ form.addEventListener("submit", (e)=>{
   addItem();
 })
 
+// let textcheck = todoItems.querySelector(".todo-text");
+// let item = todoItems.querySelector(".todo-item")
+// textcheck.classList.add("complete");
+        // item.classList.add("checked")
+
+
+// let hremaining = document.querySelector(".hiddenitems-left");
+// hremaining.innerText = `${num} items left`
+
 if (todos) {
   todos.forEach(element => {
     addItem(element);
@@ -46,16 +55,20 @@ function addItem(element) {
   }
     let check = todoItems.querySelector(".check-mark");
     let textcheck = todoItems.querySelector(".todo-text");
+    let item = todoItems.querySelector(".todo-item")
     check.addEventListener('click', () => {
-      window.location.reload();
       if(!check.classList.contains("checked")) {
         check.classList.add("checked");
         textcheck.classList.add("complete");
+        item.classList.add("checked")
         updatels();
+        itemNumber()
       } else {
         check.classList.remove("checked");
         textcheck.classList.remove("complete");
+        item.classList.remove("checked")
         updatels();
+        itemNumber()
       }
     })
     text.value = "";
