@@ -4,6 +4,7 @@ let todoCon = document.querySelector(".todo-items");
 let todoItems = document.querySelectorAll(".todo-item");
 let todos = JSON.parse(localStorage.getItem("todos"));
 let remaining = document.querySelector(".items-left");
+let remaining_h = document.querySelector(".hiddenitems-left");
 let darktheme = true;
 let arr=[];
 
@@ -146,7 +147,7 @@ info.forEach(element => {
   })
 })
 
-//Clear completed todos
+
 // let clear = document.querySelector(".clear");
 // clear.addEventListener("click", ()=>{
 //   todolist.forEach(item => {
@@ -157,6 +158,7 @@ info.forEach(element => {
 //   })
 // })
 
+//Clear completed todos
 function clearCompleted () {
   todolist.forEach(item => {
     if(item.children[0].classList.contains("checked")){
@@ -239,6 +241,7 @@ function itemNumber () {
   let activeTodo = document.querySelectorAll(".todo-item.checked");
   let num = arr.length - activeTodo.length;
   remaining.innerText = `${num} items left`
+  remaining_h.innerText = `${num} items left`
 }
 itemNumber()
 
