@@ -114,38 +114,38 @@ function all_items () {
   })
 }
 
-info.forEach(element => {
-  element.addEventListener("click", ()=>{
-    // window.location.reload();
-    // console.log("Sup");
-    if (element.innerText == "Active"){
-      console.log(todolist)
-      todolist.forEach(item => {
-        if(item.children[0].classList.contains("checked")){
-          // item.style.display = "flex";
-          // item.classList.remove("checked")
-          // updatels()
-          item.style.display = "none";
-        } else {
-          item.style.display = "block";
-        }
-      })
-    }else if (element.innerText == "Completed"){
-      todolist.forEach(item => {
-        if(!item.children[0].classList.contains("checked")){
-          console.log("yh");
-          item.style.display = "none";
-        } else {
-          item.style.display = "block";
-        }
-      })
-    }else{
-      todolist.forEach(item => {
-        item.style.display = "block";
-      })
-    }
-  })
-})
+// info.forEach(element => {
+//   element.addEventListener("click", ()=>{
+//     // window.location.reload();
+//     // console.log("Sup");
+//     if (element.innerText == "Active"){
+//       console.log(todolist)
+//       todolist.forEach(item => {
+//         if(item.children[0].classList.contains("checked")){
+//           // item.style.display = "flex";
+//           // item.classList.remove("checked")
+//           // updatels()
+//           item.style.display = "none";
+//         } else {
+//           item.style.display = "block";
+//         }
+//       })
+//     }else if (element.innerText == "Completed"){
+//       todolist.forEach(item => {
+//         if(!item.children[0].classList.contains("checked")){
+//           console.log("yh");
+//           item.style.display = "none";
+//         } else {
+//           item.style.display = "block";
+//         }
+//       })
+//     }else{
+//       todolist.forEach(item => {
+//         item.style.display = "block";
+//       })
+//     }
+//   })
+// })
 
 
 // let clear = document.querySelector(".clear");
