@@ -147,15 +147,24 @@ info.forEach(element => {
 })
 
 //Clear completed todos
-let clear = document.querySelector(".clear");
-clear.addEventListener("click", ()=>{
+// let clear = document.querySelector(".clear");
+// clear.addEventListener("click", ()=>{
+//   todolist.forEach(item => {
+//     if(item.children[0].classList.contains("checked")){
+//       item.remove();
+//       updatels();
+//     } 
+//   })
+// })
+
+function clearCompleted () {
   todolist.forEach(item => {
     if(item.children[0].classList.contains("checked")){
       item.remove();
       updatels();
     } 
   })
-})
+}
 
 let remove = document.querySelectorAll(".remove");
 
