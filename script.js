@@ -237,6 +237,7 @@ function markCompleted() {
 
 //Function to calculate remaining item Number
 
+
 function itemNumber () {
   let activeTodo = document.querySelectorAll(".todo-item.checked");
   let num = arr.length - activeTodo.length;
