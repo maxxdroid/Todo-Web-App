@@ -256,7 +256,8 @@ const change_theme = function() {
   	img.src = "./images/icon-moon.svg";
     img.dataset.image = "light";  
     bg_img.src = "./images/bg-desktop-light.jpg";
-    colors = ['./images/icon-moon.svg','white', 'hsl(0, 0%, 98%)', 'white', 'white', 'hsl(235, 19%, 35%)', 'hsl(233, 11%, 84%)', 'hsl(235, 24%, 19%)'];
+    colors = ['./images/icon-moon.svg','white', 'hsl(0, 0%, 98%)', 'white', 
+    'white', 'hsl(235, 19%, 35%)', 'hsl(233, 11%, 84%)', 'hsl(235, 24%, 19%)', 'hsl(235, 11%, 56%)'];
     localStorage.setItem('colors', JSON.stringify(colors));
     // window.location.reload();
     document.documentElement.style.setProperty('--todo-item-bg', 'white');
@@ -266,12 +267,16 @@ const change_theme = function() {
     document.documentElement.style.setProperty('--text-color', 'hsl(235, 19%, 35%)');
     document.documentElement.style.setProperty('--border-color','hsl(233, 11%, 84%)');
     document.documentElement.style.setProperty('--input-text-color','hsl(235, 24%, 19%)');
+    document.documentElement.style.setProperty('--button-color','hsl(235, 11%, 56%)');
+    // --button-color
     let bg = true;
     localStorage.setItem('bg',JSON.stringify(bg))
     console.log('yh')
   } else if (img.dataset.image == "light") {
   	img.src = "./images/icon-sun.svg";
-    colors = ['./images/icon-sun.svg','hsl(235, 24%, 19%)', 'hsl(235, 24%, 19%)', 'hsl(235, 21%, 11%)', 'hsl(235, 24%, 19%)', 'hsl(234, 39%, 85%)', 'hsl(237, 14%, 26%)', 'hsl(234, 39%, 85%)'];
+    colors = ['./images/icon-sun.svg','hsl(235, 24%, 19%)', 'hsl(235, 24%, 19%)',
+     'hsl(235, 21%, 11%)', 'hsl(235, 24%, 19%)', 'hsl(234, 39%, 85%)', 'hsl(237, 14%, 26%)',
+      'hsl(234, 39%, 85%)', 'hsl(0, 0%, 100%)'];
     localStorage.setItem('colors', JSON.stringify(colors));
     img.dataset.image = "dark";
     // window.location.reload();
@@ -283,6 +288,7 @@ const change_theme = function() {
     document.documentElement.style.setProperty('--text-color', 'hsl(234, 39%, 85%)');
     document.documentElement.style.setProperty('--border-color','hsl(237, 14%, 26%)');
     document.documentElement.style.setProperty('--input-text-color','hsl(234, 39%, 85%)');
+    document.documentElement.style.setProperty('--button-color','hsl(0, 0%, 100%)');
     let bg = false;
     localStorage.setItem('bg',JSON.stringify(bg))
   };
@@ -307,4 +313,5 @@ function keep () {
     document.documentElement.style.setProperty('--text-color', colors[5]);
     document.documentElement.style.setProperty('--border-color', colors[6]);
     document.documentElement.style.setProperty('--input-text-color', colors[7]);
+    document.documentElement.style.setProperty('--button-color', colors[8]);
 }

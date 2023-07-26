@@ -12,6 +12,8 @@
     --text-color: hsl(234, 39%, 85%);
     --border-color: hsl(237, 14%, 26%);
     --input-text-color:hsl(234, 39%, 85%);
+    --button-color: hsl(0, 0%, 100%);
+    --item-info-color: hsl(235, 11%, 56%);
     /* hsl(237, 14%, 26%)  hsl(233, 11%, 84%) */
 }   
 
@@ -42,7 +44,7 @@
     margin-top: 2rem;
     height: 70px;
     width: 100%;
-    color: hsl(233, 14%, 35%);
+    color: var(--item-info-color);
     display: flex;
     justify-content: space-between;
     border-radius: 7px;
@@ -239,7 +241,13 @@ body {
     border-top-left-radius: 7px;
     overflow: hidden;
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.4);
+    /* max-height: 300px;
+    overflow-y: scroll; */
 }
+
+/* .todo-items-wrapper::-webkit-scrollbar { 
+    background-color: var(--todo-item-wrapper-bg);
+} */
 
 .todo-text {
     display: flex;
@@ -297,6 +305,7 @@ body {
 
 button{
     font-family: inherit;
+    color: hsl(235, 11%, 56%);
 }
 
 button:active {
@@ -308,7 +317,7 @@ button:focus{
 }
 
 button:hover {
-    color: white;
+    color: var(--button-color);
     cursor: pointer;
 }
 
@@ -394,7 +403,7 @@ button:hover {
 
 .drag-help-info {
     display: flex;
-    color: hsl(233, 14%, 35%);
+    color: hsl(235, 11%, 56%);
     margin-top: 20px;
     margin-bottom: 20px;
     justify-content: center;
