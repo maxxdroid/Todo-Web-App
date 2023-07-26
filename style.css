@@ -305,7 +305,6 @@ body {
 
 button{
     font-family: inherit;
-    color: hsl(235, 11%, 56%);
 }
 
 button:active {
