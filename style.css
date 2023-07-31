@@ -64,6 +64,7 @@ body {
     justify-content: center;
     font-family: 'Josefin Sans', sans-serif;
     background-color: var(--bg-color);
+    overflow: hidden;
 }
 
 .background-image {
@@ -241,13 +242,16 @@ body {
     border-top-left-radius: 7px;
     overflow: hidden;
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.4);
-    /* max-height: 300px;
-    overflow-y: scroll; */
+    max-height: 250px;
+    overflow-y: scroll;
 }
 
-/* .todo-items-wrapper::-webkit-scrollbar { 
-    background-color: var(--todo-item-wrapper-bg);
-} */
+.todo-items-wrapper::-webkit-scrollbar { 
+    visibility: hidden;
+    background-color: transparent;
+    display: flex;
+    width: 1px;
+}
 
 .todo-text {
     display: flex;
