@@ -7,6 +7,8 @@ let remaining = document.querySelector(".items-left");
 let remaining_h = document.querySelector(".hiddenitems-left");
 let darktheme = true;
 let arr=[];
+let todos_active = false;
+let todos_completed = false;
 
 let form = document.querySelector("form");
 
@@ -28,7 +30,6 @@ if (todos) {
     addItem(element);
   })
 }
-
 
 //Create and Add todos to arrays and then stored in local storage
 function addItem(element) {
@@ -67,6 +68,9 @@ function addItem(element) {
         item.classList.add("checked")
         updatels();
         itemNumber()
+        if(todos_active) {
+          active();
+        }
       } else {
         check.classList.remove("checked");
         textcheck.classList.remove("complete");
@@ -77,7 +81,10 @@ function addItem(element) {
     })
     text.value = "";
     // window.location.reload();
-    itemNumber()
+    itemNumber();
+    if(todos_completed) {
+      todoItems.style.display = "none";
+    }
 }
 
 //Show completed, active and all Todos
@@ -85,7 +92,10 @@ let info = document.querySelectorAll(".items-statuses span");
 let todolist = document.querySelectorAll(".todocoll");
 
 function active () {
-  todolist.forEach(item => {
+  todos_active = true;
+  todos_completed = false;
+  let ntodolist = document.querySelectorAll(".todocoll");
+  ntodolist.forEach(item => {
     if(item.children[0].classList.contains("checked")){
       // item.style.display = "flex";
       // item.classList.remove("checked")
@@ -98,9 +108,13 @@ function active () {
 }
 
 function completed () {
-  todolist.forEach(item => {
+  let ntodolist = document.querySelectorAll(".todocoll");
+  todos_active = false;
+  todos_completed = true;
+  console.log(todos_completed)
+  ntodolist.forEach(item => {
     if(!item.children[0].classList.contains("checked")){
-      console.log("yh");
+      // console.log("yh");
       item.style.display = "none";
     } else {
       item.style.display = "block";
@@ -109,7 +123,10 @@ function completed () {
 }
 
 function all_items () {
-  todolist.forEach(item => {
+  let ntodolist = document.querySelectorAll(".todocoll");
+  todos_active = false;
+  todos_completed = false;
+  ntodolist.forEach(item => {
     item.style.display = "block";
   })
 }
